@@ -13,13 +13,41 @@ interface Country{
         svg: string
     }
 }
+interface FilterProps{
+    filter: {
+        inputValue: string;
+        filteredRegion: string;
+    }
+}
 
-export function CountriesList(){
+export function CountriesList(props: FilterProps){
     const [countries, setCountries] = useState<Country[]>([]);
+    
     useEffect(() => {
-        api.get('all')
-            .then(response => setCountries(response.data))
-    });
+        if(props.filter.inputValue === 'all' 
+            && props.filter.filteredRegion === ''){ 
+            api.get('all')
+                .then(response => setCountries(response.data))
+        }
+        if(props.filter.inputValue !== 'all'){
+            api.get(`/name/${props.filter.inputValue}`)
+                .then(response => setCountries(response.data))
+        }
+        if(props.filter.filteredRegion !== '' 
+            && props.filter.inputValue === 'all' 
+                || props.filter.inputValue === ''){
+            api.get(`/region/${props.filter.filteredRegion}`)
+                .then(response => setCountries(response.data))
+        }
+        if(props.filter.filteredRegion === ''
+            && props.filter.inputValue === ''){
+            api.get('all')
+                .then(response => setCountries(response.data))
+        }
+
+    }, [props.filter.inputValue, props.filter.filteredRegion]);
+
+    console.log(props.filter.inputValue, props.filter.filteredRegion)
 
     return (
         <CountriesContainer>

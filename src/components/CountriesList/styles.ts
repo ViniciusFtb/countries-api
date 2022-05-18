@@ -6,11 +6,13 @@ export const CountriesContainer = styled.div`
     gap: 5rem;
     width: 100%;
     font-size: 0.9em;
+    padding-bottom: 5rem;
     div.wrapper{
         display: inline-block;
         height: 20rem;
-        box-shadow: 0px 0px 10px lightgray;
+        box-shadow: 0px 0px 10px #e0e0e0;
         border-radius: 5px;
+        
         div.content{
             padding: .8rem 1.5rem;
             h2{
