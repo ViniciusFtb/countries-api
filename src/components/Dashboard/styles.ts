@@ -50,23 +50,71 @@ export const Container = styled.main`
                 list-style: none;
                 box-shadow: 0px 0px 10px #e0e0e0;
                 border-radius: 5px;
-                padding: .5rem 1rem;
+                
                 background-color: #fff;
+
+                animation-name: open;
+                animation-duration: 1s;
+                animation-direction: reverse;
+                max-height: 0;
+                overflow: hidden;
+                transition: display 1s;
                 li{
                     margin: .5rem 0;
                     cursor: pointer;
                 }
             }
-            #menu-toggle:checked ~ .menu{
-                display: inline-block;
-            }
             img{
                 width: 1rem;
+                transition: transform .3s;
+            }
+            #menu-toggle:checked ~ .menu{
+                padding: .5rem 1rem;
+                display: inline-block;
+                overflow: hidden;
+                animation-name: open;
+                animation-duration: .3s;
+                animation-direction: normal;
+                max-height: 11rem;
             }
             #menu-toggle:checked ~ .menu-button-container img{
                 transform: rotate(180deg);
             }
         }
     }
-    
+    @keyframes open {
+        0% {
+            max-height: 1rem;
+        }
+        10% {
+            max-height: 2rem;
+        }
+        20% {
+            max-height: 3rem;
+        }
+        30% {
+            max-height: 4rem;
+        }
+        40% {
+            max-height: 5rem;
+        }
+        50% {
+            max-height: 6rem;
+        }
+        60% {
+            max-height: 7rem;
+        }
+        70% {
+            max-height: 8rem;
+        }
+        80% {
+            max-height: 9rem;
+        }
+        90% {
+            max-height: 10rem;
+        }
+        100% {
+            max-height: 11rem;
+        }
+    }
 `;
