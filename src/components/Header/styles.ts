@@ -5,26 +5,19 @@ export const Container = styled.header`
     align-items: center;
     justify-content: center;
     height: 4rem;
-    box-shadow: 0 0 10px var(--shadow-light-mode);
-    width: 100%;
+    width: calc(100% + 10rem);
+    padding: 0 5rem;
+    margin-top: -1rem;
+    background-color: ${({ theme }) => theme.elements};
+    box-shadow: ${({ theme }) => theme.shadow};
     div{
         display: flex;
         justify-content: space-between;
         width: 1250px;
     }
     a{
-        color: black;
+        color: ${({ theme }) => theme.text};
         text-decoration: none;
         font-size: 1.2rem;
-    }
-    button{
-        display: flex;
-        align-items: center;
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
-        img{
-            width: 2rem;
-        }
     }
 `;

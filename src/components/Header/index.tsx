@@ -1,17 +1,19 @@
-import moonImg from "../../assets/moon.svg";
 import { Container } from "./styles";
+import { Toggle } from "../Themes/Toggler";
 
-export function Header(){
+export interface ThemeProps {
+    theme: string | (() => void)
+    toggleTheme: string | (() => void);
+}
+
+export function Header({theme, toggleTheme}: ThemeProps){
     return (
         <Container>
             <div>
                 <a href="#">
                     <strong>Where in the world?</strong>
                 </a>
-                <button>
-                    <img src={moonImg} alt="Moon icon" />
-                    Dark Mode 
-                </button>
+                <Toggle theme={theme} toggleTheme={toggleTheme} />
             </div>
         </Container>
     );

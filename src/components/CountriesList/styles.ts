@@ -10,7 +10,8 @@ export const CountriesContainer = styled.div`
     div.wrapper{
         display: inline-block;
         height: 20rem;
-        box-shadow: 0px 0px 10px #e0e0e0;
+        background-color: ${({theme}) => theme.elements};
+        box-shadow: ${({theme}) => theme.shadow};
         border-radius: 5px;
         
         div.content{

@@ -7,22 +7,31 @@ export const Container = styled.main`
         justify-content: space-between;
         align-items: center;
         margin: 2rem 0;
+        
         .search-wrapper{
             display: flex;
             align-items: center;
-            box-shadow: 0px 0px 10px #e0e0e0;
+            box-shadow: ${({theme}) => theme.shadow};
             width: 29rem;
             border-radius: 5px;
+            color: ${({theme}) => theme.text};
+            background-color: ${({theme}) => theme.elements};
             img{
-                width: 1.5rem;
+                height: 1.5rem;
+                width: 2rem;
                 margin: 0 .9rem;
-                filter: invert(57%) sepia(1%) saturate(1700%) hue-rotate(319deg) brightness(88%) contrast(84%);
+                transform: rotate(-15deg);
+                filter: ${({theme}) => theme.magnifierFilter};
             }
             input{
                 height: 3.5rem;
                 width: 100%;
                 border: none;
                 color: gray;
+                background-color: ${({theme}) => theme.elements};
+                &::placeholder{
+                    color: ${({theme}) => theme.textInput};
+                }
             }
         }
         .filter-wrapper{
@@ -36,8 +45,10 @@ export const Container = styled.main`
                 align-items: center;
                 justify-content: space-between;
                 cursor: pointer;
-                box-shadow: 0px 0px 10px #e0e0e0;
+                box-shadow: ${({theme}) => theme.shadow};
                 border-radius: 5px;
+                background-color: ${({theme}) => theme.elements};
+                color: ${({theme}) => theme.text};
             }
             #menu-toggle{
                 display: none;
@@ -48,10 +59,10 @@ export const Container = styled.main`
                 top: 3.8rem;
                 width: 14rem;
                 list-style: none;
-                box-shadow: 0px 0px 10px #e0e0e0;
+                box-shadow: ${({theme}) => theme.shadow};
                 border-radius: 5px;
-                
-                background-color: #fff;
+                background-color: ${({theme}) => theme.elements};
+                color: ${({theme}) => theme.text};
 
                 animation-name: open;
                 animation-duration: 1s;
