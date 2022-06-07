@@ -1,12 +1,19 @@
 import styled from "styled-components";
 
 export const Container = styled.main`
-    max-width: 1250px;
+    max-width: 1056px;
+    @media(max-width: 426px){
+        max-width: 426px;
+        padding: 0 2rem;
+    }
     div.menu-wrapper{
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin: 2rem 0;
+        @media(max-width: 426px){
+            flex-direction: column;
+        }
         
         .search-wrapper{
             display: flex;
@@ -16,6 +23,12 @@ export const Container = styled.main`
             border-radius: 5px;
             color: ${({theme}) => theme.text};
             background-color: ${({theme}) => theme.elements};
+
+            @media(max-width: 426px){
+                width: 100%;
+                margin-bottom: .5rem;
+            }
+
             img{
                 height: 1.5rem;
                 width: 2rem;
@@ -31,6 +44,9 @@ export const Container = styled.main`
                 background-color: ${({theme}) => theme.elements};
                 &::placeholder{
                     color: ${({theme}) => theme.textInput};
+                }
+                @media(max-width: 426px){
+                    border-radius: 5px;
                 }
             }
         }
@@ -49,6 +65,11 @@ export const Container = styled.main`
                 border-radius: 5px;
                 background-color: ${({theme}) => theme.elements};
                 color: ${({theme}) => theme.text};
+
+                @media(max-width: 426px){
+                    width: calc(100vw - 4rem);
+                    
+                }
             }
             #menu-toggle{
                 display: none;
@@ -70,6 +91,10 @@ export const Container = styled.main`
                 max-height: 0;
                 overflow: hidden;
                 transition: display 1s;
+
+                @media(max-width: 426px){
+                    width: calc(100vw - 4rem);
+                }
                 li{
                     margin: .5rem 0;
                     cursor: pointer;

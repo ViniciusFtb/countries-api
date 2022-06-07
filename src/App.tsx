@@ -7,6 +7,7 @@ import { GlobalStyle } from "./styles/global";
 import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from './components/Themes/Themes';
 import { useDarkMode } from './components/Themes/useDarkMode';
+import { ThemeProps } from './components/Header';
 
 export function App() {
   const [theme, themeToggler] = useDarkMode();
@@ -21,5 +22,6 @@ export function App() {
       </div>
     </ThemeProvider>
   );
+  
 };
 

@@ -10,10 +10,15 @@ export const Container = styled.header`
     margin-top: -1rem;
     background-color: ${({ theme }) => theme.elements};
     box-shadow: ${({ theme }) => theme.shadow};
+
+    @media (max-width: 426px){
+        padding: 0 2rem;
+        width: 100vw;
+    }
     div{
         display: flex;
         justify-content: space-between;
-        width: 1250px;
+        width: 1056px;
     }
     a{
         color: ${({ theme }) => theme.text};

@@ -1,5 +1,6 @@
 import { Container } from "./styles";
 import { Toggle } from "../Themes/Toggler";
+import styled from "styled-components";
 
 export interface ThemeProps {
     theme: string | (() => void)
@@ -10,10 +11,10 @@ export function Header({theme, toggleTheme}: ThemeProps){
     return (
         <Container>
             <div>
-                <a href="#">
+                <a href=".">
                     <strong>Where in the world?</strong>
                 </a>
-                <Toggle theme={theme} toggleTheme={toggleTheme} />
+                <Toggle theme={theme} toggleTheme={toggleTheme}/>
             </div>
         </Container>
     );

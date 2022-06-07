@@ -1,12 +1,16 @@
 import styled from "styled-components";
 import { func, string } from "prop-types"
 
-import { ThemeProps } from "../Header";
+// import { ThemeProps } from "../Header";
 
 import moonImg from "../../assets/moon.svg";
 import darkMoonImg from "../../assets/moon_dark.svg";
+import { lightTheme } from "./Themes";
 
-const Button = styled.button`
+interface ButtonProps{
+  onClick: () => void;
+}
+const Button = styled.button<ButtonProps>`
   display: flex;
   align-items: center;
   border: none;
@@ -17,16 +21,27 @@ const Button = styled.button`
     width: 1rem;
     height: 1rem;
     margin-right: .3rem;
+    transform: rotate(${({ theme }) => theme === lightTheme ? '40deg' : '-135deg'});
+    transition: transform 1s;
   }
   p {
     color: ${({ theme }) => theme.text};
+    @media(max-width: 426px){
+      display: none;
+    }
   }
 `;
+
+
+export interface ThemeProps {
+  theme: string | (() => void)
+  toggleTheme: string | (() => void);
+}
 
 export function Toggle({ theme, toggleTheme }:ThemeProps) {
     return (
         <Button onClick={toggleTheme}>
-            <img src={theme === 'light' ? moonImg : darkMoonImg} />
+            <img src={theme === 'light' ? moonImg : darkMoonImg} alt="moon symbol"/>
             <p>Dark Theme</p>
         </Button>
     );
